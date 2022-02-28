@@ -1,0 +1,40 @@
+
+
+.wishlist {
+    font-family: arial; 
+    color: rgb(181, 177, 185);
+    font-size: 50px;
+}
+
+.title {
+    margin-left: 100px;
+}
+
+body {
+    color:rgb(77, 77, 240);
+}
+
+
+.font{
+    font: FreeMono, monospace;
+}
+
+.container-fluid {
+    width:100%;
+    padding:70px 0px 70px 0px;
+    }
+
+.nav-item {
+    color: rgb(17, 129, 228);
+}
+.nav-link{
+    margin-left: 150px;
+    color: rgb(70, 53, 34);
+}
+.formulaire{
+    margin-left: 50px;
+}
+
+.navbar{
+    background-color: darkgray;
+}

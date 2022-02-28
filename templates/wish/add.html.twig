@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}Add a wish{% endblock %}
+
+{% block main %}
+<div class="formulaire">
+<h1>Add a wish</h1>
+<div class="col-4 my-3">
+{# form #}
+{{ form_start (formulaire)}}
+
+{{ form_widget (formulaire)}}
+
+<button class="btn btn-primary" type="submit">Add</button>
+{{ form_end (formulaire)}}
+{# </form> #}
+</div>
+</div>
+{% endblock %}

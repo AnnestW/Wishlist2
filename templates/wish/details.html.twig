@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+	Details|
+	{{ parent() }}
+{% endblock %}
+
+{% block main %}
+	<div class="container">
+		<h1>{{wish.title}}</h1>
+		<div class="row">
+			<div
+				class="col-8">
+				{# table>thead>tr>th*3 + TAB #}
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Description</th>
+							<th>Author</th>
+							<th>Date created</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{wish.description}}</td>
+							<td>
+								<strong>{{wish.author}}</strong>
+							</td>
+							<td>
+								<em>{{wish.dateCreated| date('d-m-Y H:i:s')}}</em>
+							</td>
+						</tr>
+					</tbody>
+				</thead>
+			</table>
+			{# table>thead>tr>th*3^^tbody>tr>td*3 +TAB #}
+		</div>
+	</div>
+</div>{% endblock main %}

@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+	Wish List |
+	{{ parent() }}
+{% endblock %}
+
+{% block main %}
+	<br>
+	<div class="container container-fluid">
+		<div class="row">
+			<div class="col-md-1 my-3">
+				<img class="d-flex align-items-end" src="{{ asset ('img/confetti.png')}}" alt="confetti">
+			</div>
+			<div class="col-md-5 my-3">
+				<div class="row">
+					<h1 id="titleVoeu" class="ml-3">
+						Add a wish !</h1>
+					<div class="col-md-2 my-3 ml-4">
+						<a href="{{path('addclassic')}}" class="btn btn-info">
+							<i class="fa fa-plus"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="table-responsive">
+					<table class="table table-hover table-bordered">
+						<thead>
+							<tr>
+								<th>Wishlist</th>
+								<th>Date Created</th>
+								<th colspan="2">Action</th>
+							</tr>
+						</thead>
+						{# tbody>tr>td*3 #}
+						<tbody>
+							<tr>
+								{#|sort((a, b) => a.dateCreated <=> b.dateCreated) -- ma hwn yn gweithio hefyd ar ôl wishes i sortio#}
+								{% for w in wishes %}
+									<td style="font-size:20px">{{ w.title }}</td>
+									<td>{{w.dateCreated| date('d-m-Y H:i:s')}}</td>
+									<td>
+										<a href="{{ path('details',{'id':w.id})}}" class="btn btn-warning">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</td>
+									<td>
+										<a href="{{ path('edit',{'id':w.id})}}" class="btn btn-secondary">
+											<i class="fa-solid fa-edit"></i>
+										</a>
+									</td>
+									<td>
+										<a href="{{ path('delete',{'id':w.id })}}" class="btn btn-danger">
+											<i class="fa fa-trash" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+										</a>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Confirm delete</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>Do you really want to delete?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yikes! No!</button>
+					<button type="button" class="btn btn-primary">Delete</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock main %}

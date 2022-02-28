@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+	Wish List |
+	{{ parent() }}
+{% endblock %}
+
+
+{%block main %}
+
+<div class="col-4 my-3 formulaire">
+{{form_start (formulaire)}}
+{{form_widget(formulaire)}}
+<button class="btn btn-info" type ="submit"> Modifier</button>
+{{form_end(formulaire)}}
+</div>
+{% endblock %}
